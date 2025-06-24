@@ -1,77 +1,122 @@
-# MicroShell: A Minimalist Unix Shell
+# 🐚 MicroShell: A Minimalist Unix Shell
 
-## Overview
-MicroShell is a minimalist Unix-like shell implemented in C, designed to execute user commands within a custom terminal environment. The shell supports a variety of standard command operations, including conditional execution, piping, background processes, file redirection, and special character handling. MicroShell is built to offer a lightweight yet functional alternative to standard shells with specific constraints on command execution.
+MicroShell is a lightweight Unix-like shell implemented in C. It allows the execution of user commands in a custom terminal environment and supports common shell operations such as command chaining, piping, background processes, file redirection, and conditional execution.
 
-## Features
-- **Basic Command Execution**: Supports commands with `argc` between 1 and 4, ensuring a simple yet versatile command structure.
-- **Special Commands**:
-  - **`dter`**: Terminates the current MicroShell session.
-  - **`#`**: Counts the number of words in a specified `.txt` file.
-  - **`~`**: Concatenates up to 4 `.txt` files in sequence, displaying the result.
-  - **`+`**: Executes a command in the background, with the ability to bring it back to the foreground using the `fore` command.
-  - **`|`**: Supports up to 4 piped commands, enabling complex command chains.
-  - **`<`, `>`, `>>`**: Handles input and output redirection, including appending output to files.
-  - **`;`**: Executes up to 4 commands sequentially.
-  - **`&&`, `||`**: Conditional execution of commands with support for up to 4 operators in a combination of logical AND and OR.
+---
 
-## Compilation and Usage
-### Compilation
-To compile the MicroShell, use the following command:
+## ✨ Features
+
+- ✅ **Basic Command Execution**  
+  Supports simple commands with 1 to 4 arguments.
+
+- 🛑 **Session Termination**  
+  `dter` — safely exits the shell session.
+
+- 🔢 **Text File Analysis**  
+  `# filename.txt` — counts the number of words in a `.txt` file.
+
+- 📚 **File Concatenation**  
+  `file1.txt ~ file2.txt ~ ...` — concatenates up to 4 `.txt` files.
+
+- ⚙️ **Background Processing**  
+  Add `+` to run commands in the background. Use `fore` to bring them back to the foreground.
+
+- 🔗 **Piping**  
+  Supports up to 4 commands chained using `|`.
+
+- 📤 **Input & Output Redirection**  
+  - `<` — input redirection  
+  - `>` — output redirection  
+  - `>>` — append output to a file
+
+- 📋 **Sequential Execution**  
+  Use `;` to run multiple commands one after another.
+
+- 🔀 **Conditional Execution**  
+  Supports logical operations with `&&` (AND) and `||` (OR), up to 4 conditions.
+
+---
+
+## 🛠 Compilation
+
+To compile MicroShell:
+
 ```bash
 gcc -o microshell microshell.c
 ```
-### Running the Shell
+
+---
+
+## 🚀 Running MicroShell
+
+Start the shell using:
+
 ```bash
 ./microshell
 ```
-Once running, MicroShell will enter an infinite loop, waiting for user commands.
 
-#### Special Commands
-Terminate MicroShell:
+MicroShell will begin a command loop waiting for user input.
+
+---
+
+## 🧪 Example Commands
+
+### 🔹 Exit MicroShell
 ```bash
 microshell$ dter
 ```
-#### Count Words in a File:
+
+### 🔹 Count words in a file
 ```bash
 microshell$ # sample.txt
 ```
-#### Concatenate Files:
+
+### 🔹 Concatenate `.txt` files
 ```bash
 microshell$ file1.txt ~ file2.txt ~ file3.txt ~ file4.txt
 ```
-#### Run a Process in the Background:
+
+### 🔹 Run a command in the background
 ```bash
 microshell$ command arg1 arg2 +
 ```
-#### Bring it back to the foreground:
+
+### 🔹 Bring background process to foreground
 ```bash
 microshell$ fore
 ```
-#### Piping Commands:
+
+### 🔹 Pipe multiple commands
 ```bash
 microshell$ ls -l | grep txt | wc | wc -w
 ```
-#### Redirection:
-Input redirection:
+
+### 🔹 Redirect input/output
 ```bash
-microshell$ grep to < sample.txt
+# Input from file
+microshell$ grep "text" < input.txt
+
+# Output to file
+microshell$ ls -l > output.txt
+
+# Append output to file
+microshell$ date >> log.txt
 ```
-Output redirection:
-```bash
-microshell$ ls -l > dirlist.txt
-```
-Append output to a file:
-```bash
-microshell$ ls -l >> dirlist.txt
-```
-#### Sequential Command Execution:
+
+### 🔹 Execute commands sequentially
 ```bash
 microshell$ date ; pwd ; ls -l
 ```
-#### Conditional Execution:
+
+### 🔹 Conditional command execution
 ```bash
 microshell$ command1 && command2 || command3 && command4
 ```
 
+---
 
+## 🙋‍♀️ Author
+
+**Aditi Patel**  
+👩‍💻 [GitHub](https://github.com/pateladiti0401)  
+📧 pateladiti542@gmail.com
